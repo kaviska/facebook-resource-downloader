@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import GetAppIcon from "@mui/icons-material/GetApp";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -8,7 +8,6 @@ import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import ClearIcon from "@mui/icons-material/Clear";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import MovieCreationIcon from "@mui/icons-material/MovieCreation";
-import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
 import Toast from "@/components/Toast";
 
 type ToastState = {

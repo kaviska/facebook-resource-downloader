@@ -5,8 +5,7 @@ import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import MovieCreationIcon from "@mui/icons-material/MovieCreation";
 import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
-import StoryIcon from "@mui/icons-material/AutoStories"; // Icon for Story
-import ProfileIcon from "@mui/icons-material/AccountCircle"; // Icon for Profile Picture
+
 
 export default function TopHero() {
     const pathname = usePathname(); // Get current path
