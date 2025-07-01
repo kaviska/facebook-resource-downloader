@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@plugin "@tailwindcss/typography";
+
+
+.header-blog {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+}
+.css-glass{
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.21);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0.5px);
+-webkit-backdrop-filter: blur(0.5px);
+border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/* Style the container */
+#google_translate_element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+/* Style the translation dropdown */
+.goog-te-gadget-simple {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius:4px;
+  padding:20px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.goog-te-gadget-simple:hover {
+  background: #e9ecef;
+  border-color: #bbb;
+}
+
+/* Language selection text */
+.goog-te-gadget-simple a {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown arrow */
+.goog-te-gadget-simple span[aria-hidden="true"] {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #777;
+}
+
+/* Remove unnecessary images */
+.goog-te-gadget-icon,
+.goog-te-gadget img {
+  display: none !important;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .goog-te-gadget-simple {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
+}
+.skiptranslate iframe {
+  display: none !important;
+  visibility: hidden !important;
+}
+#goog-gt-tt{
+  display: none !important;
+  visibility: hidden !important;
+}
+.container *:hover {
+ 
+  color: black !important;
+}
+.container font:hover {
+  color: black !important;
+}
+.container font{
+  color: black !important;
+}
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO{
+  display: none !important;
+  visibility: hidden !important;
+}
