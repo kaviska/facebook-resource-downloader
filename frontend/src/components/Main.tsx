@@ -65,20 +65,13 @@ export default function Main() {
     if (!url.trim()) {
       setToast({
         open: true,
-        message: "Please enter a valid Instagram URL",
+        message: "Please enter a valid  URL",
         type: "warning"
       });
       return;
     }
 
-    if (!url.includes("facebook.com")) {
-      setToast({
-        open: true,
-        message: "Please enter a valid Facebook URL",
-        type: "warning"
-      });
-      return;
-    }
+   
 
     setPogress(true);
     console.log("Sending data:", url);
@@ -263,7 +256,7 @@ export default function Main() {
           <button
             className={`h-12 px-6 text-[18px] mt-4 flex gap-3 items-center justify-center py-2 rounded-[10px] ${
               isButtonDisabled
-                ? "bg-gray-400 cursor-not-allowed"
+                ? "bg-blue-500 text-white cursor-not-allowed"
                 : "bg-blue-500 hover:bg-blue-700 text-white"
             }`}
             onClick={() => {
@@ -284,145 +277,198 @@ export default function Main() {
         className="container md:max-w-7xl max-w-4xl px-6 py-10 mx-auto"
       >
         {apiData && (
-          <div className="space-y-6">
-            {/* Header with clear button */}
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-gray-800">Content Preview</h2>
+          <div>
+            <div className="flex justify-end mb-3">
               <button
-                onClick={clearPreview}
-                className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors duration-200"
+              className="px-3 py-2 rounded-[8px] text-white bg-blue-500 hover:bg-blue-600 transition-colors duration-200"
+              onClick={clearPreview}
               >
-                Download Another Content
+              Download Another Content
               </button>
             </div>
-
-            {/* Main Preview Card */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-[500px] mx-auto ">
-              {/* Header Info */}
-              <div className="p-6 border-b border-gray-100">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                      {apiData.title}
-                    </h3>
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
-                      <span className="flex items-center gap-1">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                        {apiData.source.charAt(0).toUpperCase() + apiData.source.slice(1)}
-                      </span>
-                      <span>By {apiData.author}</span>
-                      {apiData.duration && (
-                        <span>Duration: {formatDuration(apiData.duration)}</span>
-                      )}
-                    </div>
-                  </div>
+             <div className="flex gap-3 mb-6 justify-end">
+                  <button
+                    className="px-3 py-2 rounded-[8px] text-white bg-amber-500 hover:bg-amber-600 transition-colors duration-200"
+                    onClick={() => {
+                      // Download as Zip logic
+                      const links = apiData.medias.map((media: any) => media.url);
+                      const form = document.createElement('form');
+                      form.method = 'POST';
+                      form.action = 'https://api.savefrominsta.app/api/download-zip';
+                      form.style.display = 'none';
+                      const input = document.createElement('input');
+                      input.type = 'hidden';
+                      input.name = 'links';
+                      input.value = JSON.stringify(links);
+                      form.appendChild(input);
+                      document.body.appendChild(form);
+                      form.submit();
+                      document.body.removeChild(form);
+                    }}
+                  >
+                    Download AS Zip
+                  </button>
                 </div>
-              </div>
-
-              {/* Thumbnail Preview */}
-                <div className="relative ">
-                <Image
-                  src={
-                  apiData.thumbnail
-                    ? apiData.thumbnail
-                    : (apiData.medias && apiData.medias.length > 0 && apiData.medias[0].type === "image")
-                    ? apiData.medias[0].url
-                    : "/no-image.png"
-                  }
-                  alt={apiData.title}
-                  width={800}
-                  height={450}
-                  className="w-full max-h-96 object-fit"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-200">
-                  <div className="bg-white bg-opacity-90 rounded-full p-3">
-                  {apiData.medias.some((media: any) => media.type === 'video') ? (
-                    <MovieCreationIcon className="text-blue-600" style={{ fontSize: 32 }} />
-                  ) : (
-                    <InsertPhotoIcon className="text-blue-600" style={{ fontSize: 32 }} />
-                  )}
-                  </div>
-                </div>
-                </div>
-
-              {/* Download Options */}
-              <div className="p-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4">Download Options</h4>
-                <div className="grid gap-3">
-                  {apiData.medias.map((media: any, index: number) => (
+            {/* If multiple images, show grid like MainTemp */}
+            {apiData.medias && apiData.medias.length > 1 ? (
+              <>
+                {apiData.title && (
+                  <p className="text-gray-700 mb-6 text-base font-semibold text-center">{apiData.title}</p>
+                )}
+               
+                <div className="mt-6 flex gap-x-3 gap-y-12 flex-wrap justify-center">
+                  {apiData.medias.map((media: any, idx: number) => (
                     <div
-                      key={index}
-                      className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                      key={idx}
+                      className="flex flex-col items-center shadow-lg rounded-lg bg-white overflow-hidden pb-4"
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                          media.type === 'video' ? 'bg-blue-100 text-blue-600' : 
-                          media.type === 'audio' ? 'bg-green-100 text-green-600' : 
-                          'bg-purple-100 text-purple-600'
-                        }`}>
-                          {media.type === 'video' ? (
-                            <MovieCreationIcon style={{ fontSize: 20 }} />
-                          ) : media.type === 'audio' ? (
-                            <span className="text-sm font-bold">♪</span>
-                          ) : (
-                            <InsertPhotoIcon style={{ fontSize: 20 }} />
-                          )}
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-800">
-                            {media.quality} Quality
-                          </p>
-                          <p className="text-sm text-gray-500">
-                            {media.type.charAt(0).toUpperCase() + media.type.slice(1)} • {media.extension.toUpperCase()}
-                          </p>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => handleDownload(
-                          media.url, 
-                          `${apiData.source}_${media.quality}.${media.extension}`,
-                          media.quality
-                        )}
-                        disabled={isDownloading}
-                        className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
-                          isDownloading 
-                            ? 'bg-blue-300 text-white cursor-not-allowed' 
-                            : 'bg-blue-500 hover:bg-blue-600 text-white hover:scale-105 active:scale-95'
-                        }`}
-                      >
-                        {isDownloading ? (
-                          <div className="flex items-center gap-2">
-                            <CircularProgress size={16} color="inherit" />
-                            <span>Downloading...</span>
-                          </div>
+                      <div className="relative">
+                        <Image
+                          src={
+                            media.type === 'image'
+                              ? media.url
+                              : media.type === 'video'
+                              ? media.thumbnail || apiData.thumbnail || '/no-image.png'
+                              : apiData.thumbnail || '/no-image.png'
+                          }
+                          height={375}
+                          width={300}
+                          alt="hw"
+                          className="w-[300px] h-[375px] object-cover"
+                        />
+                        {media.type === 'video' ? (
+                          <MovieCreationIcon
+                            style={{
+                              color: "white",
+                              fontSize: 24,
+                              position: "absolute",
+                              top: 10,
+                              right: 10,
+                            }}
+                          />
                         ) : (
-                          <div className="flex items-center gap-2">
-                            <GetAppIcon style={{ fontSize: 18 }} />
-                            <span>Download</span>
-                          </div>
+                          <InsertPhotoIcon
+                            style={{
+                              color: "white",
+                              fontSize: 24,
+                              position: "absolute",
+                              top: 10,
+                              right: 10,
+                            }}
+                          />
                         )}
-                      </button>
+                      </div>
+                      {/* Card Footer */}
+                      <div className="py-4 px-0 max-w-[300px] text-[16] w-full">
+                        <p className="text-gray-700 mb-2 text-sm text-center">{media.quality}</p>
+                        <button
+                          onClick={() => handleDownload(
+                            media.url,
+                            `${apiData.source || 'facebook'}_${media.quality || 'media'}.${media.extension || 'jpg'}`,
+                            media.quality || ''
+                          )}
+                          disabled={isDownloading}
+                          className={`bg-blue-500 f text-white px-3 py-[10px] rounded-[10px] mt-2 flex justify-center w-full ${
+                            isDownloading ? "bg-gray-400 cursor-not-allowed" : "hover:bg-blue-600"
+                          }`}
+                        >
+                          {isDownloading ? (
+                            <span className="flex items-center gap-2"><CircularProgress size={16} color="inherit" /> Downloading...</span>
+                          ) : (
+                            <span className="flex items-center gap-2"><GetAppIcon style={{ fontSize: 18 }} /> Download</span>
+                          )}
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
-
-                {/* Additional Info */}
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-blue-600 text-sm">ℹ</span>
+              </>
+            ) : (
+              <div className="flex justify-center">
+                <div className="flex flex-col items-center shadow-lg rounded-lg bg-white overflow-hidden pb-4 max-w-[500px] w-full">
+                  <div className="relative w-full flex flex-col items-center">
+                    <Image
+                      src={
+                        apiData.thumbnail
+                          ? apiData.thumbnail
+                          : (apiData.medias && apiData.medias.length > 0 && apiData.medias[0].type === "image")
+                          ? apiData.medias[0].url
+                          : "/no-image.png"
+                      }
+                      alt={apiData.title || "Preview"}
+                      width={300}
+                      height={375}
+                      className="min-h-[300px] min-w-[375px] max-w-[320px] object-cover max-h-[400px]"
+                    />
+                    {apiData.medias && apiData.medias.some((media: any) => media.type === 'video') ? (
+                      <MovieCreationIcon
+                        style={{
+                          color: "white",
+                          fontSize: 24,
+                          position: "absolute",
+                          top: 10,
+                          right: 10,
+                        }}
+                      />
+                    ) : (
+                      <InsertPhotoIcon
+                        style={{
+                          color: "white",
+                          fontSize: 24,
+                          position: "absolute",
+                          top: 10,
+                          right: 10,
+                        }}
+                      />
+                    )}
+                  </div>
+                  {/* Card Footer */}
+                  <div className="py-4 px-0 max-w-[300px] text-[16] w-full">
+                    {apiData.title && (
+                      <p className="text-gray-700 mb-3 text-base font-semibold text-center">{apiData.title}</p>
+                    )}
+                    {apiData.description && (
+                      <p className="text-gray-700 mb-3 text-sm text-center">{apiData.description}</p>
+                    )}
+                    <div className="flex justify-between gap-4 text-gray-600 text-sm mb-2">
+                      {apiData.author && (
+                        <span>
+                          <strong>By:</strong> {apiData.author}
+                        </span>
+                      )}
+                      {apiData.duration && (
+                        <span>
+                          <strong>Duration:</strong> {formatDuration(apiData.duration)}
+                        </span>
+                      )}
                     </div>
-                    <div>
-                      <p className="text-sm text-blue-800 font-medium mb-1">Download Information</p>
-                      <p className="text-sm text-blue-700">
-                        Choose your preferred quality and format. Higher quality files will be larger in size.
-                        {apiData.medias.length > 1 && " Multiple formats are available for this content."}
-                      </p>
+                    {/* Download Buttons for each media */}
+                    <div className="flex flex-col gap-3 mt-4">
+                      {apiData.medias && apiData.medias.map((media: any, idx: number) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleDownload(
+                            media.url,
+                            `${apiData.source || 'facebook'}_${media.quality || 'media'}.${media.extension || 'mp4'}`,
+                            media.quality || ''
+                          )}
+                          disabled={isDownloading}
+                          className={`bg-blue-500 text-white px-3 py-[10px] rounded-[10px] inline-block w-full ${
+                            isDownloading ? "bg-gray-400 cursor-not-allowed" : "hover:bg-blue-600"
+                          }`}
+                        >
+                          {isDownloading ? (
+                            <span className="flex items-center gap-2"><CircularProgress size={16} color="inherit" /> Downloading...</span>
+                          ) : (
+                            <span className="flex items-center gap-2"><GetAppIcon style={{ fontSize: 18 }} /> Download {media.quality ? media.quality : ''} {media.type ? media.type.charAt(0).toUpperCase() + media.type.slice(1) : ''}</span>
+                          )}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         )}
       </div>

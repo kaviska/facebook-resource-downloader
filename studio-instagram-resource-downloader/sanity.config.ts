@@ -9,7 +9,7 @@ export default defineConfig({
   name: 'default',
   title: 'Instagram Resource Downloader',
 
-  projectId: 'n9195iq3',
+  projectId: 'fzh0bmda',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool(),
@@ -42,11 +42,12 @@ export default defineConfig({
         'containSectionVideo',
         'containSectionPhoto',
         'containSectionCarousel',
-        'containSectionProfilePic',
-        'containSectionActiveStory',
+     
       ],
     }),
   ],
+
+  
 
   // document: {
   //   actions: (prev) => [
