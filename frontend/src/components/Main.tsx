@@ -221,7 +221,7 @@ export default function Main() {
         {/* <TopHero /> */}
 
         <h1 className="md:text-[32px] text-[28px] text-white  md:text-start text-center mt-8 ">
-        FaceBook Content Downloader
+        Tiktok Content Downloader
         </h1>
 
         <div className="flex md:flex-row flex-col md:gap-3 gap-5 mt-4">
