@@ -1,12 +1,12 @@
 // filepath: c:\xampp\htdocs\lms\instragram-resource-downloader\studio-instagram-resource-downloader\schemaTypes\containSection.ts
 export default {
   name: 'containSectionPhoto',
-  title: 'Photo Page ',
+  title: 'Instragram Page ',
   type: 'document',
   fields: [
     {
       name: 'howToDownloadHeader',
-      title: 'Add Title For the Photo Page',
+      title: 'Add Title For the Instragram Page',
       type: 'string',
     },
     {

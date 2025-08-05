@@ -1,12 +1,12 @@
 // filepath: c:\xampp\htdocs\lms\instragram-resource-downloader\studio-instagram-resource-downloader\schemaTypes\containSection.ts
 export default {
   name: 'containSectionReel',
-  title: 'Reel Page ',
+  title: 'Pinsert Page ',
   type: 'document',
   fields: [
     {
       name: 'howToDownloadHeader',
-      title: 'Add Title For the Reel Page',
+      title: 'Add Title For the Pinsert Page',
       type: 'string',
     },
     {

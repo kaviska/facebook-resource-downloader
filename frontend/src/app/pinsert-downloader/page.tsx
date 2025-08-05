@@ -1,5 +1,5 @@
 "use client";
-import ContainSectionCarousel from "@/components/ContainSectionCarousel";
+import ContainSection from "@/components/ContainSectionPinsert";
 import Main from "@/components/Main";
 
 export default function Temp() {
@@ -7,7 +7,7 @@ export default function Temp() {
   return (
     <div>
       <Main />
-      <ContainSectionCarousel />
+      <ContainSection />
     </div>
   );
 }

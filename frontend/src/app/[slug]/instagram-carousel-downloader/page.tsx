@@ -1,5 +1,5 @@
 "use client";
-import ContainSectionCarousel from "@/components/ContainSectionCarousel";
+import ContainSectionCarousel from "@/components/ContainSectionTiktokl";
 import Main from "@/components/Main";
 
 export default function Temp() {

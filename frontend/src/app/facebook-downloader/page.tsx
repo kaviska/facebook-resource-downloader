@@ -1,5 +1,5 @@
 "use client";
-import ContainSectionReel from "@/components/ContainSectionReel";
+import ContainSection from "@/components/ContainSectionFacebook";
 import Main from "@/components/Main";
 
 export default function Temp() {
@@ -7,7 +7,7 @@ export default function Temp() {
   return (
     <div>
       <Main />
-      <ContainSectionReel />
+      <ContainSection />
     </div>
   );
 }

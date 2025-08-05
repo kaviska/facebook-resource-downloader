@@ -1,12 +1,12 @@
 // filepath: c:\xampp\htdocs\lms\instragram-resource-downloader\studio-instagram-resource-downloader\schemaTypes\containSection.ts
 export default {
   name: 'containSectionCarousel',
-  title: 'Carousel Page ',
+  title: 'Tiktok Page ',
   type: 'document',
   fields: [
     {
       name: 'howToDownloadHeader',
-      title: 'Add Title For the Carousel Page',
+      title: 'Add Title For the Tiktok Page',
       type: 'string',
     },
     {

@@ -1,12 +1,12 @@
 // filepath: c:\xampp\htdocs\lms\instragram-resource-downloader\studio-instagram-resource-downloader\schemaTypes\containSection.ts
 export default {
   name: 'containSectionVideo',
-  title: 'Video Page ',
+  title: 'Facebook Page ',
   type: 'document',
   fields: [
     {
       name: 'howToDownloadHeader',
-      title: 'Add Title For the Video Page',
+      title: 'Add Title For the Facebook Page',
       type: 'string',
     },
     {

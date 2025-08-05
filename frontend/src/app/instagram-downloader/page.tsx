@@ -1,5 +1,5 @@
 "use client";
-import ContainSectionVideo from "@/components/ContainSectionVideo";
+import ContainSection from "@/components/ContainSectionInstragram";
 import Main from "@/components/Main";
 
 export default function Temp() {
@@ -7,7 +7,7 @@ export default function Temp() {
   return (
     <div>
       <Main />
-      <ContainSectionVideo />
+      <ContainSection />
     </div>
   );
 }

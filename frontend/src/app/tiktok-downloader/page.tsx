@@ -1,5 +1,5 @@
 "use client";
-import ContainSectionPhoto from "@/components/ContainSectionPhoto";
+import ContainSection from "@/components/ContainSectionTiktokl";
 import Main from "@/components/Main";
 
 export default function Temp() {
@@ -7,7 +7,7 @@ export default function Temp() {
   return (
     <div>
       <Main />
-      <ContainSectionPhoto />
+      <ContainSection />
     </div>
   );
 }
