@@ -13,10 +13,9 @@ export default function TopHero() {
     return (
         <div className="flex   css-glass px-3 py-3 rounded-[6px]">
             {[
-                { href: "/facebook-video-downloader", label: "Video", icon: <VideoLibraryIcon style={{ color: "white", fontSize: 18 }} /> },
-                { href: "/facebook-photo-downloader", label: "Photo", icon: <InsertPhotoIcon style={{ color: "white", fontSize: 18 }} /> },
-                { href: "/facebook-reel-downloader", label: "Reel", icon: <MovieCreationIcon style={{ color: "white", fontSize: 18 }} /> },
-                { href: "/facebook-carousel-downloader", label: "Carousel", icon: <ViewCarouselIcon style={{ color: "white", fontSize: 18 }} /> },
+                { href: "/pinsert-video-downloader", label: "Video", icon: <VideoLibraryIcon style={{ color: "white", fontSize: 18 }} /> },
+                { href: "/pinsert-photo-downloader", label: "Photo", icon: <InsertPhotoIcon style={{ color: "white", fontSize: 18 }} /> },
+              
             ].map(({ href, label, icon }, index, array) => (
                 <a key={href} href={href} className="w-full md:w-auto">
                     <div
