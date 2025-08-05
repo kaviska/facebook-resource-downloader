@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
   const [metaData, setMetaData] = useState({
-    title: "Instagram Downloader - Download Instagram Reels, Posts, Videos & Carousels",
+    title: "All Downloader Downloader - Download Instagram Reels, Posts, Videos & Carousels",
     description:
       "Download Instagram photos, videos, reels, and stories with SaveFromInsta. Fast, free, and easy-to-use Instagram video downloader with HD quality and no watermarks. No sign-up required.",
   });
