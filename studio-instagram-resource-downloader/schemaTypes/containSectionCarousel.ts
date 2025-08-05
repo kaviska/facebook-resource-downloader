@@ -1,7 +1,7 @@
 // filepath: c:\xampp\htdocs\lms\instragram-resource-downloader\studio-instagram-resource-downloader\schemaTypes\containSection.ts
 export default {
   name: 'containSectionCarousel',
-  title: 'Tiktok Page ',
+  title: 'Carousel Page ',
   type: 'document',
   fields: [
     {

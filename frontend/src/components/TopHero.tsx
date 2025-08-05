@@ -1,10 +1,10 @@
 "use client"; // Ensure it's a client component
 
 import { usePathname } from "next/navigation";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import PinterestIcon from "@mui/icons-material/Pinterest";
-import MusicVideoIcon from "@mui/icons-material/MusicVideo";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+import MovieCreationIcon from "@mui/icons-material/MovieCreation";
+import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
 
 
 export default function TopHero() {
@@ -13,10 +13,10 @@ export default function TopHero() {
     return (
         <div className="flex   css-glass px-3 py-3 rounded-[6px]">
             {[
-                { href: "/facebook-downloader", label: "Facebook", icon: <FacebookIcon style={{ color: "white", fontSize: 18 }} /> },
-                { href: "/instagram-downloader", label: "Instagram", icon: <InstagramIcon style={{ color: "white", fontSize: 18 }} /> },
-                { href: "/pinsert-downloader", label: "Pinterest", icon: <PinterestIcon style={{ color: "white", fontSize: 18 }} /> },
-                { href: "/tiktok-downloader", label: "Tiktok", icon: <MusicVideoIcon style={{ color: "white", fontSize: 18 }} /> },
+                { href: "/facebook-video-downloader", label: "Video", icon: <VideoLibraryIcon style={{ color: "white", fontSize: 18 }} /> },
+                { href: "/facebook-photo-downloader", label: "Photo", icon: <InsertPhotoIcon style={{ color: "white", fontSize: 18 }} /> },
+                { href: "/facebook-reel-downloader", label: "Reel", icon: <MovieCreationIcon style={{ color: "white", fontSize: 18 }} /> },
+                { href: "/facebook-carousel-downloader", label: "Carousel", icon: <ViewCarouselIcon style={{ color: "white", fontSize: 18 }} /> },
             ].map(({ href, label, icon }, index, array) => (
                 <a key={href} href={href} className="w-full md:w-auto">
                     <div
