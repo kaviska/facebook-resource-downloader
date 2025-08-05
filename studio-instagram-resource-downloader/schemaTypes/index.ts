@@ -21,11 +21,11 @@ export const schemaTypes = [
     blockContent,
     containSection, // Add this line
     // Add other schemas here as needed
-    containSectionReel, // Add this line for the reel page
-    containSectionVideo,
-    containSectionPhoto,
-    containSectionCarousel,
-    test
+    // containSectionReel, // Add this line for the reel page
+    // containSectionVideo,
+    // containSectionPhoto,
+    // containSectionCarousel,
+    // test
    // containSectionStory
     
 

@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import GetAppIcon from "@mui/icons-material/GetApp";
 import CircularProgress from "@mui/material/CircularProgress";
-import TopHero from "@/components/TopHero";
+// import TopHero from "@/components/TopHero";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import ClearIcon from "@mui/icons-material/Clear";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
@@ -218,7 +218,7 @@ export default function Main() {
   return (
     <div>
       <div className="bg-[#DA08C9] flex flex-col justify-center items-center px-5 py-16 ">
-        <TopHero />
+        {/* <TopHero /> */}
 
         <h1 className="md:text-[32px] text-[28px] text-white  md:text-start text-center mt-8 ">
         FaceBook Content Downloader

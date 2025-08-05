@@ -9,7 +9,7 @@ export default defineConfig({
   name: 'default',
   title: 'Instagram Resource Downloader',
 
-  projectId: 'fzh0bmda',
+  projectId: 'u4kanlpn',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool(),
