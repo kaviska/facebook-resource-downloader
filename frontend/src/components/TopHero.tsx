@@ -3,8 +3,8 @@
 import { usePathname } from "next/navigation";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import MovieCreationIcon from "@mui/icons-material/MovieCreation";
-import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
+// import MovieCreationIcon from "@mui/icons-material/MovieCreation";
+// import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
 
 
 export default function TopHero() {
